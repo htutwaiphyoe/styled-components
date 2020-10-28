@@ -1,27 +1,26 @@
-import { BrowserRouter, Route, Link } from "react-router-dom";
-const Home = () => {
-    return (
-        <div>
-            HOME <Link to="/contact">GO TO CONTACT</Link>
-        </div>
-    );
-};
-const Contact = () => {
-    return (
-        <div>
-            Contact
-            <Link to="/">GO TO HOME</Link>
-        </div>
-    );
-};
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import StreamShow from "./streams/StreamShow/StreamShow";
+import StreamList from "./streams/StreamList/StreamList";
+import StreamEdit from "./streams/StreamEdit/StreamEdit";
+import StreamCreate from "./streams/StreamCreate/StreamCreate";
+import StreamDelete from "./streams/StreamDelete/StreamDelete";
+import Header from "./Header/Header";
+
 const App = (props) => {
     return (
-        <BrowserRouter>
-            <div>
-                <Route path="/" exact component={Home} />
-                <Route path="/contact" exact component={Contact} />
-            </div>
-        </BrowserRouter>
+        <div className="ui container">
+            <BrowserRouter>
+                <Header />
+                <Switch>
+                    <Route path="/" exact component={StreamList} />
+                    <Route path="/streams/new" exact component={StreamCreate} />
+                    <Route path="/streams/edit" exact component={StreamEdit} />
+                    <Route path="/streams/delete" exact component={StreamDelete} />
+                    <Route path="/streams/show" exact component={StreamShow} />
+                </Switch>
+            </BrowserRouter>
+        </div>
     );
 };
 
