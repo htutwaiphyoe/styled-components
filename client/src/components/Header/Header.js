@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import GoogleOAuth from "../GoogleOAuth/GoogleOAuth";
 const Header = (props) => {
     return (
-        <div className="ui secondary pointing menu">
+        <header className="ui secondary pointing menu">
             <Link to="/" className="item">
-                Streams.TV
+                StreamsTV
             </Link>
             <div className="right menu">
                 <Link to="/" className="item">
-                    All Streams
+                    AllStreams
                 </Link>
-                <GoogleOAuth />
             </div>
-        </div>
+            <GoogleOAuth />
+        </header>
     );
 };
 
