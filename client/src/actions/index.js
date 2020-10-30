@@ -1,7 +1,8 @@
 import { SIGN_IN, SIGN_OUT } from "./actionTypes";
-export const signIn = () => {
+export const signIn = (user) => {
     return {
         type: SIGN_IN,
+        payload: user,
     };
 };
 

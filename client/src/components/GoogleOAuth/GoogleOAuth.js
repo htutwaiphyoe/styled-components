@@ -21,7 +21,12 @@ class GoogleOAuth extends React.Component {
     }
     setAuthState = (isSignedIn) => {
         if (isSignedIn) {
-            this.props.signIn();
+            this.props.signIn({
+                id: this.auth.currentUser.get().getId(),
+                name: this.auth.currentUser.get().getBasicProfile().getName(),
+                imageUrl: this.auth.currentUser.get().getBasicProfile().getImageUrl(),
+                email: this.auth.currentUser.get().getBasicProfile().getEmail(),
+            });
         } else {
             this.props.signOut();
         }

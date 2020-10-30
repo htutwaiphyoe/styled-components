@@ -1,14 +1,15 @@
 import { SIGN_IN, SIGN_OUT } from "../actions/actionTypes";
 const initialState = {
     isSignedIn: null,
+    user: null,
 };
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case SIGN_IN:
-            return { ...state, isSignedIn: true };
+            return { ...state, isSignedIn: true, user: action.payload };
         case SIGN_OUT:
-            return { ...state, isSignedIn: false };
+            return { ...state, isSignedIn: false, user: null };
 
         default:
             return state;
